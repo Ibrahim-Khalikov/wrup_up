@@ -8,9 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var model = Contentmodel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+       
+        
+     
+            NavigationView{
+                VStack(alignment: .leading){
+                    
+                      Text("Search Bar")
+                        .padding(.top)
+                        .padding(.leading, 36)
+                        
+                    
+                    
+            
+                    
+                    List(model.modules){ r in
+                
+              NavigationLink(
+                destination: Video(),
+                label: {
+                    Text(r.title)
+                })
+                    
+     
+            
+                    
+            
+            }
+                }
+                .padding(-16).navigationTitle("Wrup up")
+            }
+            
+            
     }
 }
 
